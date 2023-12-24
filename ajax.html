@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="demo">
+        <h2>Career Objectives</h2>
+        <h4> A dynamic fresh graduate of Computer Engineering, seeking to build...</h4>
+        <button type="button" onclick="loadDoc()">Read more</button>
+    </div>
+
+
+
+    <script> 
+     function loadDoc() {
+
+        // creating xml request 
+        // variable = XMLHttpRequest
+        const pap = new XMLHttpRequest();
+
+        // call back function
+        // WHAT TO DO WHEN THE RESPONSE IS READY
+        pap.onload = function(){
+            document.getElementById("demo").innerHTML = this.responseText;
+        }
+        // xml request
+        // send a request to server we use open() and send()
+
+        pap.open("GET", "load.txt", true );
+        // address of the file on the server
+
+
+        pap.send();
+    }
+    </script>
+</body>
+</html>

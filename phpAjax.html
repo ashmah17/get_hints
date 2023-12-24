@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-ajax.js"></script>
+</head>
+<body>
+    <!-- <p>
+        <b>
+            Put Your Name In the field below:
+        </b>
+    </p>
+    <form action="">
+        <label for="name">Full name</label>
+        <input type="text" name="name" id="fname" onkeyup="showHint(this.value)">
+    </form>
+    <p>Suggestions: <span id="txtHint">
+    </span></p> -->
+
+    <div class="container">
+        <p>
+            <b>
+                Put Your Name In the field below:
+            </b>
+        </p>
+        <form action="">
+            <label for="">Full name</label>
+            <input type="text" id="search">
+            <p>Suggestions: <span id="result">
+
+        </form>
+    </div>
+
+<script>
+     $(Document).ready(function(){
+        // document.querySelector('.search').value()
+     var info = $('.search').val();
+     if(!info==""){
+        $.ajax(ajax({
+            url:"getHint.php",
+            method:"POST",
+            data:{info:info},
+            success:function(data){
+                $('#result').val(data)
+            }
+        }))
+     }
+
+        // alert("ihate lies")
+    });
+    // function showHint (str){
+    //     if (str.lenght == 0){
+    //         document.getElementById("txtHint").innerHTML = "";
+    //         return;
+    //     }else{
+    //         var poo = new XMLHttpRequest();
+    //         poo.onreadystatechange = function() {
+    //             if (this.readyState == 4 && this.status == 200){
+    //                 document.getElementById("txtHint").innerHTML = this.responseText;
+    //             }
+    //         }
+    //         poo.open("GET", "getHint.php?q="+str, true);
+    //         poo.send();
+    //     }
+    // }
+   
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-ajax.js"></script>
+
+    <style>
+        p{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h2>Data</h2>
+
+    <p id="demo">A dynamic fresh graduate of Comput.....</p>
+    <button type="button" onclick="loadDoc()">Read more</button>
+
+
+    <script>
+        function loadDoc(){
+            
+        // creating xml request 
+        // variable = XMLHttpRequest
+            const pap =new XMLHttpRequest();
+           
+            // call back function
+        // WHAT TO DO WHEN THE RESPONSE IS READY
+            pap.onload = function(){
+                document.getElementById("demo").innerHTML = this.responseText;
+        }
+
+        // xml request
+        // send a request to server we use open() and send()
+            pap.open("GET", "load.txt", true );
+
+
+        // address of the file on the server
+           pap.send();
+        }
+
+
+    </script>
+
+</body>
+</html>
